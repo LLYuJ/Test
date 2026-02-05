@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>备忘录</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>我的备忘录</h1>
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="搜索备忘录...">
+                </div>
+                <button id="theme-toggle" class="theme-toggle">🌙</button>
+            </div>
+        </header>
+        <div class="add-note">
+            <input type="text" id="note-title" placeholder="输入标题...">
+            <textarea id="note-content" placeholder="输入内容..."></textarea>
+            <button id="add-btn">添加备忘录</button>
+        </div>
+        <div class="notes-list" id="notes-list">
+            <!-- 备忘录将通过JavaScript动态添加 -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
