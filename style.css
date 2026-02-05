@@ -1,0 +1,394 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+body.dark-mode .container {
+    background-color: #2c2c2c;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    color: #2c3e50;
+    margin: 0;
+    font-size: 24px;
+}
+
+body.dark-mode .header h1 {
+    color: #f0f0f0;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-box {
+    position: relative;
+}
+
+#search-input {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+    width: 200px;
+    transition: all 0.3s;
+}
+
+body.dark-mode #search-input {
+    background-color: #3c3c3c;
+    border-color: #555;
+    color: #f0f0f0;
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: #3498db;
+    width: 250px;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.add-note {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid #e0e0e0;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+body.dark-mode .add-note {
+    background-color: #3c3c3c;
+    border-color: #555;
+}
+
+#note-title {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+body.dark-mode #note-title {
+    background-color: #4c4c4c;
+    border-color: #666;
+    color: #f0f0f0;
+}
+
+#note-content {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    resize: vertical;
+    min-height: 100px;
+    transition: all 0.3s;
+}
+
+body.dark-mode #note-content {
+    background-color: #4c4c4c;
+    border-color: #666;
+    color: #f0f0f0;
+}
+
+#add-btn {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#add-btn:hover {
+    background-color: #2980b9;
+}
+
+.notes-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.note {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #3498db;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
+}
+
+body.dark-mode .note {
+    background-color: #3c3c3c;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.note:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode .note:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.note h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+body.dark-mode .note h3 {
+    color: #f0f0f0;
+}
+
+.note p {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 1.5;
+    transition: color 0.3s;
+}
+
+body.dark-mode .note p {
+    color: #ccc;
+}
+
+.note .note-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    margin-top: 10px;
+    transition: border-color 0.3s;
+}
+
+body.dark-mode .note .note-footer {
+    border-top-color: #555;
+}
+
+.note .date {
+    font-size: 12px;
+    color: #999;
+    transition: color 0.3s;
+}
+
+body.dark-mode .note .date {
+    color: #888;
+}
+
+.note .actions {
+    display: flex;
+    gap: 10px;
+}
+
+.note button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.note .edit-btn {
+    background-color: #f39c12;
+    color: #fff;
+}
+
+.note .edit-btn:hover {
+    background-color: #e67e22;
+}
+
+.note .delete-btn {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.note .delete-btn:hover {
+    background-color: #c0392b;
+}
+
+.edit-form {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    transition: border-color 0.3s;
+}
+
+body.dark-mode .edit-form {
+    border-top-color: #555;
+}
+
+.edit-form input,
+.edit-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+body.dark-mode .edit-form input,
+body.dark-mode .edit-form textarea {
+    background-color: #4c4c4c;
+    border-color: #666;
+    color: #f0f0f0;
+}
+
+.edit-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.edit-form button {
+    margin-right: 8px;
+}
+
+.edit-form .save-btn {
+    background-color: #27ae60;
+    color: #fff;
+}
+
+.edit-form .save-btn:hover {
+    background-color: #229954;
+}
+
+.edit-form .cancel-btn {
+    background-color: #95a5a6;
+    color: #fff;
+}
+
+.edit-form .cancel-btn:hover {
+    background-color: #7f8c8d;
+}
+
+.no-notes {
+    text-align: center;
+    color: #999;
+    padding: 40px 0;
+    grid-column: 1 / -1;
+    transition: color 0.3s;
+}
+
+body.dark-mode .no-notes {
+    color: #888;
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .header-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    #search-input {
+        width: 150px;
+    }
+    
+    .notes-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 20px;
+    }
+    
+    .header-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    #search-input {
+        width: 100%;
+    }
+    
+    .add-note {
+        padding: 15px;
+    }
+    
+    #note-title,
+    #note-content {
+        font-size: 14px;
+    }
+    
+    #add-btn {
+        width: 100%;
+        padding: 12px;
+    }
+}
